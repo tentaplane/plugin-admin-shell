@@ -1,0 +1,8 @@
+{
+    "id": "tentapress/admin-shell",
+    "name": "Admin Shell",
+    "description": "Admin UI shell, layout, navigation and base admin routes.",
+    "version": "0.1.0",
+    "provider": "TentaPress\\AdminShell\\AdminShellServiceProvider",
+    "requires": []
+}
