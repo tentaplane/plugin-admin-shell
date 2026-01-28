@@ -8,7 +8,10 @@
     :class="sidebarOpen ? 'translate-x-0' : ''">
     <div class="flex h-14 items-center border-b border-white/10 px-4">
         <a href="{{ url('/admin') }}" class="flex items-center gap-2 text-sm hover:text-white/90">
-            <span class="inline-flex h-6 w-6 items-center justify-center rounded bg-white/10 text-xs">TP</span>
+            <span
+                class="inline-flex h-6 w-6 items-center justify-center rounded bg-gradient-to-br from-[#2b7bc7] to-[#1f6fb6] text-xs text-white shadow-sm">
+                TP
+            </span>
             <span class="text-base">TentaPress</span>
         </a>
     </div>
