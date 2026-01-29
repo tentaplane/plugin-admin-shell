@@ -5,7 +5,7 @@ Admin UI shell, layout, navigation and base admin routes.
 ## Plugin details
 
 - ID: `tentapress/admin-shell`
-- Version: `0.1.1`
+- Version: `0.1.2`
 - Service provider: `TentaPress\AdminShell\AdminShellServiceProvider`
 
 ## Requirements
