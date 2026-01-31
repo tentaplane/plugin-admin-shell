@@ -1,15 +1,10 @@
-@php
-    $user = auth()->user();
-    $menu = app(\TentaPress\System\Admin\Menu\MenuBuilder::class)->build($user);
-@endphp
-
 <aside
-    class="-translate-x-full fixed inset-y-0 left-0 z-40 h-screen w-64 overflow-y-auto bg-[#1d2327] text-white transition-transform md:translate-x-0"
+    class="fixed inset-y-0 left-0 z-40 h-screen w-64 -translate-x-full overflow-y-auto bg-[#1d2327] text-white transition-transform md:translate-x-0"
     :class="sidebarOpen ? 'translate-x-0' : ''">
     <div class="flex h-14 items-center border-b border-white/10 px-4">
         <a href="{{ url('/admin') }}" class="flex items-center gap-2 text-sm hover:text-white/90">
             <span
-                class="inline-flex h-6 w-6 items-center justify-center rounded bg-gradient-to-br from-[#2b7bc7] to-[#1f6fb6] text-xs text-white shadow-sm">
+                class="inline-flex h-6 w-6 items-center justify-center rounded bg-linear-to-br from-[#2b7bc7] to-[#1f6fb6] text-xs text-white shadow-sm">
                 TP
             </span>
             <span class="text-base">TentaPress</span>
@@ -17,7 +12,7 @@
     </div>
 
     <nav class="space-y-1 px-2 py-3">
-        @foreach ($menu as $item)
+        @foreach ($tpMenu as $item)
             @php
                 $hasChildren = !empty($item['children']) && is_array($item['children']);
                 $isActive = !empty($item['active']);

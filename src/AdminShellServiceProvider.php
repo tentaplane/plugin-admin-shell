@@ -5,16 +5,12 @@ declare(strict_types=1);
 namespace TentaPress\AdminShell;
 
 use Illuminate\Support\ServiceProvider;
-use TentaPress\AdminShell\Navigation\MenuRepository;
-use TentaPress\System\Plugin\PluginRegistry;
+use TentaPress\AdminShell\Admin\Menu\MenuBuilder;
 
 final class AdminShellServiceProvider extends ServiceProvider
 {
     public function register(): void
     {
-        $this->app->singleton(MenuRepository::class, fn (): MenuRepository => new MenuRepository(
-            registry: $this->app->make(PluginRegistry::class),
-        ));
     }
 
     public function boot(): void
@@ -26,15 +22,9 @@ final class AdminShellServiceProvider extends ServiceProvider
 
         // Inject menu + common admin view data into the shell layout.
         view()->composer('tentapress-admin::layouts.shell', function ($view): void {
-            $menus = $this->app->make(MenuRepository::class);
+            $menus = $this->app->make(MenuBuilder::class)->build(auth()->user());
 
-            $view->with('tpMenu', $menus->all());
-        });
-
-        view()->composer('tentapress-admin::partials.sidebar', function ($view): void {
-            $menus = $this->app->make(MenuRepository::class);
-
-            $view->with('tpMenu', $menus->all());
+            $view->with('tpMenu', $menus);
         });
     }
 }
