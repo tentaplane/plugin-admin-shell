@@ -297,7 +297,7 @@
 
     @media (max-width: 767px) {
         .tp-table--responsive .tp-table__thead {
-            display: none;
+            @apply sr-only;
         }
 
         .tp-table--responsive .tp-table__tbody {

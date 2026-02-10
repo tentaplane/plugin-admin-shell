@@ -3,6 +3,8 @@
         type="button"
         class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded border border-black/10 text-sm text-black/70 transition hover:bg-black/5 lg:hidden"
         @click="sidebarOpen = !sidebarOpen"
+        :aria-expanded="sidebarOpen ? 'true' : 'false'"
+        aria-controls="tp-admin-sidebar"
         aria-label="Open or close menu">
         <svg
             xmlns="http://www.w3.org/2000/svg"
